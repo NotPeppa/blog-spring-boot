@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Component
@@ -27,7 +26,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void updateFill(MetaObject metaObject) {
         // 自动填充 updateDate 字段
-        this.strictUpdateFill(metaObject, "updaeDate", LocalDateTime.class, LocalDateTime.now());
+        this.strictUpdateFill(metaObject, "updateDate", LocalDateTime.class, LocalDateTime.now());
 
         // 自动填充 updateBy 字段
         this.strictInsertFill(metaObject, "updateBy", String.class, "admin");
