@@ -11,4 +11,5 @@ import java.util.List;
 public interface UserService {
     public ApiResponse<Object> register(UserDto userDto);
     public List<User> findByUsername(String username);
+    public User findByUsernameAndPassword(String username, String password);
 }

@@ -62,8 +62,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findByUsername(String username) {
-        Map<String,Object> map = new HashMap<>();
+        Map<String,Object> map = new HashMap<>(1);
         map.put("username",username);
         return userMapper.selectByMap(map);
     }
+
+    @Override
+    public User findByUsernameAndPassword(String username, String password) {
+        Map<String,Object> map = new HashMap<>(2);
+        map.put("username",username);
+        map.put("password",password);
+        if (!userMapper.selectByMap(map).isEmpty()) {
+            return userMapper.selectByMap(map).get(0);
+        }
+        return null;
+    }
+
+
 }
